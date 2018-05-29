@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VueJS</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<div id="app">
+    <my-cmp></my-cmp>
+    <my-cmp></my-cmp>
+    <hr>
+    <my-cmp></my-cmp>
+    <my-cmp2></my-cmp2>
+    <my-cmp2></my-cmp2>
+</div>
+
+<script>
+    Vue.component('my-cmp', {
+        data: function() {
+            return {status: 'Critical'};
+        },
+        template: '<p>Server status: {{ status }} <button @click="changeStatus">Change</button></p>',
+        methods: {
+            changeStatus: function(e) {
+                this.status = 'Normal'
+            }
+        }
+    });
+
+    let data = {status: 'Critical'};
+    Vue.component('my-cmp2', {
+        data: function() {
+            return data;
+        },
+        template: '<p>Server status: {{ status }} <button @click="changeStatus">Change</button></p>',
+        methods: {
+            changeStatus: function(e) {
+                this.status = 'Normal'
+            }
+        }
+    });
+    new Vue({
+        el: '#app'
+    });
+</script>
+</body>
+</html>
