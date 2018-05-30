@@ -3,6 +3,8 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ switchName() }}</p>
+        <button @click="resetName">Reset The Name</button>
+        <button @click="resetFn()">Reset The Name</button>
     </div>
 </template>
 
@@ -13,11 +15,16 @@
                 type: String,
                 required: false,
                 default: 'Nice ka'
-            }
+            },
+            resetFn: Function
         },
         methods: {
             switchName() {
                 return this.myName.split('').reverse().join('');
+            },
+            resetName() {
+                this.myName = 'Eman updated';
+                this.$emit('nameWasReset', this.myName);
             }
         }
     }
