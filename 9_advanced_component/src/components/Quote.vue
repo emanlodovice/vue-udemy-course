@@ -1,6 +1,14 @@
 <template>
     <div>
-        <slot></slot>
+        <div class="title">
+            <slot name="title"></slot>
+            <span>
+                <slot name="subtitle">The Subtitle</slot>
+            </span>
+        </div>
+        <div>
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -21,5 +29,13 @@
 
     strong {
         color: red;
+    }
+
+    .title {
+        font-style: italic;
+    }
+
+    span {
+        color: gray;
     }
 </style>

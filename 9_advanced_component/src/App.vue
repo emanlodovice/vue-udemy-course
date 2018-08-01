@@ -2,7 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <app-quote><strong>{{ theQuote }}</strong></app-quote>
+                <app-quote>
+                    <strong slot="title">{{ theQuote }}</strong>
+                    <p>{{ theParagraph }}</p>
+                </app-quote>
             </div>
         </div>
     </div>
@@ -13,7 +16,8 @@
     export default {
         data: function() {
             return {
-                theQuote: 'Hello World'
+                theQuote: 'Hello World',
+                theParagraph: 'paragraph'
             }
         },
         components: {
