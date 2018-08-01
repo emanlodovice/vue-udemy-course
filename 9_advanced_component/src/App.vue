@@ -2,10 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <app-quote>
+                <button @click="selectedComponent = 'appQuote'">Quote</button>
+                <button @click="selectedComponent = 'appAuthor'">Author</button>
+                <button @click="selectedComponent = 'appNew'">New</button>
+                <hr>
+                {{ selectedComponent }}
+                <keep-alive>
+                    <component :is="selectedComponent">
+                        <p>Default Content</p>
+                    </component>
+                </keep-alive>
+                <!-- <app-quote>
                     <strong slot="title">{{ theQuote }}</strong>
                     <p>{{ theParagraph }}</p>
-                </app-quote>
+                </app-quote> -->
             </div>
         </div>
     </div>
@@ -13,15 +23,19 @@
 
 <script>
     import Quote from './components/Quote.vue';
+    import New from './components/New.vue';
+    import Author from './components/Author.vue';
     export default {
         data: function() {
             return {
                 theQuote: 'Hello World',
-                theParagraph: 'paragraph'
+                selectedComponent: 'appQuote'
             }
         },
         components: {
-            appQuote: Quote
+            appQuote: Quote,
+            appNew: New,
+            appAuthor: Author
         }
     };
 </script>
