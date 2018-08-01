@@ -1,10 +1,12 @@
 <template>
     <div>
-        <p>A wonderful Quotes!!!!</p>
+        <slot></slot>
     </div>
 </template>
 
 <script>
+    export default {
+    };
     
 </script>
 
@@ -14,5 +16,10 @@
         box-shadow: 1px 1px 2px black;
         padding: 30px;
         margin: 30px auto;
+        text-align: center;
+    }
+
+    strong {
+        color: red;
     }
 </style>
